@@ -42,10 +42,6 @@ module.exports = (app) => {
             return res.status(400).json({ error: 'Please enter a username and password' });
          }
          const user = await User.findOne({ username: req.body.username }).select('+password');
-         console.log('User:', user);
-         console.log('Password:', req.body.password);
-         console.log('User password:', user.password);
-         console.log(bcrypt.getRounds(user.password))
          if (!user) {
             return res.status(401).json({ error: 'Invalid username' });
          }
