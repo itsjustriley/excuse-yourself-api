@@ -19,9 +19,18 @@ require('./data/db');
 
 app.use(checkAuth);
 
+const handlebars = require('express-handlebars');
+app.engine('handlebars', handlebars());
+app.set('view engine', 'handlebars');
+app.set('views', 'views');
+
+
 
 // TODO: Add each controller here, after all middleware is initialized.
 
+app.get('/', (req, res) => {
+  res.render('home', { layout: 'main' });
+});
 
 app.listen(3000, () => {
     console.log('API listening on port http://localhost:3000!');
