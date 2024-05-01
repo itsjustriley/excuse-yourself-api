@@ -1,15 +1,18 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     createdAt: { type: Date },
     updatedAt: { type: Date },
-    password: { type: String, select: false },
-    username: { type: String, required: true }
+    password: { type: String, select: false, required: true},
+    username: { type: String, required: true, unique: true },
 },
     { timestamps: { createdAt: 'created_at' } }
 );
+
+UserSchema.plugin(uniqueValidator);
 
 // Must use function here! ES6 => functions do not bind this!
 UserSchema.pre("save", function (next) {
