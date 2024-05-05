@@ -20,33 +20,14 @@ require('./data/db');
 
 
 require ('./controllers/auth')(app);
+require ('./controllers/excuse')(app);
 
-
-
-
-// TODO: Add each controller here, after all middleware is initialized.
-
-app.get('/excuse', checkAuth, (req, res) => {
-  const excuses = [
-    "I forgot",
-    "I didn't know",
-    "I didn't understand",
-    "I didn't care",
-    "I didn't think",
-    "I was too busy",
-    "I was sick",
-    "My dog ate it",
-    "I was on vacation",
-    "I was at a conference",
-    "I was at a doctor's appointment",
-    "I was at a funeral",
-    "I was at a wedding",
-    "My cat was sick",
-    "My car broke down",
-  ];
-  const excuse = excuses[Math.floor(Math.random() * excuses.length)];
-  res.json({ excuse });
+app.get('/', (req, res) => {
+  res.send("There's nothing here. We'd make an excuse, but you'll have better luck at /excuse");
 });
+
+
+
 
 app.listen(3000, () => {
   console.log('API listening on port http://localhost:3000!');

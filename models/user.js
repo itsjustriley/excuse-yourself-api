@@ -3,11 +3,13 @@ const bcrypt = require("bcryptjs");
 const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
+
 const UserSchema = new Schema({
     createdAt: { type: Date },
     updatedAt: { type: Date },
     password: { type: String, select: false, required: true},
     username: { type: String, required: true, unique: true },
+    excuses: [{ type: Schema.Types.ObjectId, ref: "Excuse" }],
 },
     { timestamps: { createdAt: 'created_at' } }
 );
