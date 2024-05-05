@@ -3,9 +3,17 @@
 ## Description
 Use this API to get excuses, and save them to a list. 
 
-<!-- tables -->
+### How To Get Started
+1. [clone this repo](https://github.com/itsjustriley/excuse-yourself-api)
+2. cd into the directory
+3. run `npm install` 
+4. `npm start`
+5. app will run on localhost:3000
 
 ### How To Excuse Yourself
+
+Note: a valid token is required to use any of the excuse-related queries. Please begin by signing up, and copy to the returned token for authentication.
+
 | Method | Endpoint | Description |
 | -------- | -------- | -------- |
 | POST | /signup | Sign up with a **username** and **password** to receive a token |

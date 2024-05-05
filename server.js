@@ -22,8 +22,10 @@ require('./data/db');
 require ('./controllers/auth')(app);
 require ('./controllers/excuse')(app);
 
+app.use(express.static('docs')); 
+
 app.get('/', (req, res) => {
-  res.send("There's nothing here. We'd make an excuse, but you'll have better luck at /excuse");
+  res.sendFile('/docs/index.html'); 
 });
 
 
