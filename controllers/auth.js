@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -42,6 +42,8 @@ module.exports = (app) => {
             return res.status(400).json({ error: 'Please enter a username and password' });
          }
          const user = await User.findOne({ username: req.body.username }).select('+password');
+
+         console.log(bcrypt.getRounds(user.password))
          if (!user) {
             return res.status(401).json({ error: 'Invalid username' });
          }
