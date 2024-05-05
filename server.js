@@ -26,11 +26,8 @@ app.get('/', (req, res) => {
   res.send("There's nothing here. We'd make an excuse, but you'll have better luck at /excuse");
 });
 
-
-
-
-app.listen(3000, () => {
-  console.log('API listening on port http://localhost:3000!');
-});
+// app.listen(3000, () => {
+//   console.log('API listening on port http://localhost:3000!');
+// });
 
 module.exports = app;
