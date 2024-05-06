@@ -1,4 +1,7 @@
-require('dotenv').config();
+if (!process.env.PORT) {
+  require("dotenv").config()
+}
+
 
 const express = require('express');
 const checkAuth = require('./middleware/checkAuth');
