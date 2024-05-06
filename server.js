@@ -33,11 +33,8 @@ app.get('/', (req, res) => {
   res.sendFile('/docs/index.html'); 
 });
 
-
-
-
-// app.listen(3000, () => {
-//   console.log('API listening on port http://localhost:3000!');
-// });
+app.listen(port, () => {
+  console.log('API listening on port' + port);
+});
 
 module.exports = app;
